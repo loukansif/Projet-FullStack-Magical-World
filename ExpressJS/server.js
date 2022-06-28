@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-// const categories_routes = require('./routes/categories_routes');
+const categories_routes = require('./routes/categories_routes');
 const toys = require('./routes/toys_routes');
 // const elves_routes = require('./routes/elves_routes');
 
@@ -18,7 +18,7 @@ mongoose
     .connect(URI, { useNewUrlParser: true })
     .then(() => {
         console.log("connection à la base réussie");
-        // app.use('/categories', categories_routes);
+        app.use('/categories', categories_routes);
         app.use('/toys', toys);
 
         // app.use('/elves', elves_routes);

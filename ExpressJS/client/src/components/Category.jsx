@@ -8,13 +8,12 @@ const Category = (props) => {
         <thead>
           <tr>
             <th>Nom</th>
-            <th>Description</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Donuts</td>
-            <td>Donuts Donuts Donuts Donuts Donuts </td>
+          {props.categories.map((category) =>
+          <tr key={category._id}>
+            <td>{category.name}</td>
             <td>
               <a href="https://google.com">Modifier</a>
             </td>
@@ -22,6 +21,7 @@ const Category = (props) => {
               <a href="https://google.com">Supprimer</a>
             </td>
           </tr>
+          )}
         </tbody>
       </table>
     </div>
