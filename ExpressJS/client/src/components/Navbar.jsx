@@ -5,7 +5,7 @@ import matriceLogo from "../assets/images/matriceLogo.png";
 function Navbar() {
   return (
     <div className="navigation">
-      <NavLink className="navbar-brand" to="/">
+      <NavLink to="/">
         <img src={matriceLogo} className="logoMatrice" alt="Logo" />
       </NavLink>
       <div>

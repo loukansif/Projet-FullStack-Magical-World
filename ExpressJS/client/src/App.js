@@ -1,16 +1,17 @@
 import "./App.css";
 import Navbar from "./components/Navbar";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import React from "react";
+import Home from "./components/Home";
+import Category from "./components/Category";
 
 class App extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       categories: [],
-      toys: []
-    }
+      toys: [],
+    };
   }
   //get all categories
   //get al toys
@@ -36,16 +37,16 @@ class App extends React.Component {
   }
 
   render() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <Router>
-          <Navbar />
-        </Router>
-      </header>
-    </div>
-  );
-}
+    return (
+      <div className="App">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/category" element={<Category />}></Route>
+        </Routes>
+      </div>
+    );
+  }
 }
 
 export default App;
