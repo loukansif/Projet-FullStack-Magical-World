@@ -12,7 +12,6 @@ class App extends React.Component {
       toys: []
     }
   }
-
   //get all categories
   //get al toys
   componentDidMount() {
