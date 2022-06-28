@@ -14,11 +14,12 @@ const Home = (props) => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Donuts</td>
-            <td>Donuts Donuts Donuts Donuts Donuts </td>
-            <td>3,000</td>
-            <td>Donuts</td>
+        {props.toys.map((toy) =>
+          <tr key={toy._id}>
+            <td>{toy.name}</td>
+            <td>{toy.description}</td>
+            <td>{toy.price}</td>
+            <td>{toy.category}</td>
             <td>
               <a href="https://google.com">Modifier</a>
             </td>
@@ -26,6 +27,7 @@ const Home = (props) => {
               <a href="https://google.com">Supprimer</a>
             </td>
           </tr>
+          )}
         </tbody>
       </table>
     </div>

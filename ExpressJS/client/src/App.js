@@ -16,21 +16,15 @@ class App extends React.Component {
   //get all categories
   //get al toys
   componentDidMount() {
-    Promise.all([
-      fetch("http://localhost:5000/categories"),
-      fetch("http://localhost:5000/toys"),
-    ])
-      .then(([res1, res2]) => Promise.all([res1.json(), res2.json()]))
+     fetch("http://localhost:3000/toys")
+      .then((res1) => res1.json())
       .then(
-        ([result1, result2]) => {
-          this.setState({
-            categories: result1,
-            toys: result2,
-          });
+        (result1) => {
+          this.setState({ toys: result1 });
         },
         (error) => {
           this.setState({
-            error,
+            error
           });
         }
       );
@@ -41,8 +35,8 @@ class App extends React.Component {
       <div className="App">
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/category" element={<Category />}></Route>
+          <Route path="/" element={<Home toys={this.state.toys}/>}/>
+          <Route path="/category" element={<Category />}/>
         </Routes>
       </div>
     );
